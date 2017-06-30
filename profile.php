@@ -17,3 +17,5 @@ $perso = new Personne($nom, $prenom, $login, $mdp, $date, $region, $email, $inte
 
 $persoData = new DataBase();
 $persoData->creatFile($perso);
+
+header('Location:connexion.php');
