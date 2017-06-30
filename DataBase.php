@@ -19,9 +19,9 @@ class DataBase {
         if(!is_dir('user')){
             mkdir('user');
         }
-
-        if(!file_exists('user/' . $perso->login . '.json')){
-            $file = fopen('user/' . $perso->login . '.json', 'w+');
+                
+        if(!file_exists('user/' . $perso->login . '.sz')){
+            $file = fopen('user/' . $perso->login . '.sz', 'w+');
             fwrite($file, serialize($perso));
             fclose($file);
             echo 'un nouveau compte a été crée';
@@ -63,4 +63,55 @@ class DataBase {
             }
         }
     }
+    
+    function recoverEvent($sessionName){
+    
+        $events = scandir('event');
+        
+        foreach ($events as $event){ // boucle sur les fichiers
+            if(is_dir($event)){ continue; }
+                    
+            $_SESSION['file'] = $event;
+            
+            $contentEvent = file_get_contents('event/' . $event); // recupere le contenu des fichiers
+            $decode = unserialize($contentEvent);// decode le contenu = objets
+            
+            $_SESSION['recoverEvent'] = $decode;
+            
+            if(!empty($sessionName)){ // si connecter
+                if($decode->creator == $sessionName->login){
+                    include './designEvent.php';
+                    include './removButton.php';
+                }
+            } else { // pas connecter ou connecter
+                include './designEvent.php';
+                include './buttonParticipat.php';
+            }
+        }
+        $_SESSION['recoverEvent'] = '';
+    }
+    
+    function modifiFile($directory, $file, $modifProp, $modif, $operation){
+        
+        $contentdecode = unserialize(file_get_contents($directory . '/' . $file)); //decripte
+        
+        
+        if($operation == 1){
+            $contentdecode->$modifProp += $modif;
+        } else if($operation == 2){
+            $contentdecode->$modifProp = $modif; // pour tableau
+        }
+
+        $contentdecode = serialize($contentdecode); // reencripte
+        
+            $saveFile = fopen( $directory . '/' . $file, 'w');
+            fwrite($saveFile, $contentdecode); // reecrie
+            fclose($saveFile);
+    }
+    
+    function decodeFile($directory, $file){
+        $contentdecode = unserialize(file_get_contents($directory . '/' . $file)); //decripte
+        return $contentdecode;
+    }
+    
 }

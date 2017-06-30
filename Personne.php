@@ -1,16 +1,5 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- * Description of Personne
- *
- * @author apdil
- */
 class Personne {
     
     public $nom;
@@ -23,6 +12,7 @@ class Personne {
     public $situation;
     public $interet; // sous forme de tableau
     public $genre;
+    public $participation = [];
     
     function __construct($nom, $prenom, $login, $mdp, $dateNaissance, $region, $email, $interet, $genre) {
         $this->nom = $nom;
@@ -35,9 +25,7 @@ class Personne {
         $this->interet = $interet;
         $this->genre = $genre;
     }
-    
-    
-    
+        
     function generateHtml(){
         echo '<br/> nom : ' . $this->nom;
         echo '<br/> prenom : ' . $this->prenom;

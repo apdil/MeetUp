@@ -2,14 +2,9 @@
 session_start();
 include_once './DataBase.php';
 
-if(isset($_GET['login'])){
-    
-$login = $_GET['login'];
-$mdp = $_GET['mdp'];
+ // efface la session PROFILECONNECTED
+session_destroy();
 
-$connect = new DataBase();
-
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">

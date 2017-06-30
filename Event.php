@@ -35,5 +35,16 @@ class Event {
         $this->capacite = $capacite;
         $this->creator = $creator;
     }
-
+    
+    function generateHtml(){
+        echo '<br/> nom : ' . $this->nom;
+        echo '<br/> lieu : ' . $this->lieu;
+        echo '<br/> duree : ' . $this->duree;
+        echo '<br/> categorie : ' . $this->categorie;
+        echo '<br/> date : ' . $this->date;
+        echo '<br/> description : ' . $this->description;
+        echo '<br/> ressource : ' . $this->ressources;
+        echo '<br/> capacite : ' . $this->capacite;
+        echo '<br/> creator : ' . $this->creator;
+    }
 }

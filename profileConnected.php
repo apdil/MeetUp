@@ -1,19 +1,27 @@
 <?php
 include_once './DataBase.php';
+include_once './Event.php';
+include_once './Personne.php';
 session_start();
 
-$login = $_GET['login'];
-$mdp = $_GET['mdp'];
+if(isset($_GET['login']) && isset($_GET['mdp'])){ // avoir acces profile 1 fois sinon erreur
+    $login = $_GET['login'];
+    $mdp = $_GET['mdp'];
+    
+    $profile = new DataBase();
+    $profilObject = $profile->recoverProfil($login, $mdp); //  ==== object Profil
+    
+    $_SESSION['profil'] = $profilObject;
+}
 
-$profile = new DataBase();
-$profilObject = $profile->recoverProfil($login, $mdp); // object Profil
-
-if(!is_object($profilObject)){ header('Location:connexion.php'); }
-
-$_SESSION['profil'] = $profilObject;
 $persoSession = $_SESSION['profil'];
 
+
+if(!is_object($persoSession)){ header('Location:connexion.php'); } // pour connexion.php, la reconnaisance
+
 echo 'Bienvenue ' . $persoSession->nom;
+
+$profile = new DataBase();
 
 ?>
 
@@ -27,9 +35,15 @@ echo 'Bienvenue ' . $persoSession->nom;
     <title>connexion</title>
 </head>
 <body>
-    <form action='#'>
-        <input type='submit' value='deconnecter'> <!- ne detruit pas la session -->
+    <form action='connexion.php'>
+        <input type='submit' value='deconnecter'>
     </form>
     <a href='creatEvent.php'>Creer un evenement?</a>
+    <br/>
+    <a href='index.php'>Go Index</a>
+    <div>
+        <?php echo $profile->recoverEvent($_SESSION['profil']); //aficher les events ?>
+    </div>
+    <h2>les evenement auqels ons participent</h2>
 </body>
 </html>

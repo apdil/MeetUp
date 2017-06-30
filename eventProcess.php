@@ -14,8 +14,10 @@ $date = $_GET['date'];
 $capacite = $_GET['capacite'];
 $ressource = $_GET['ressource'];
 
-$event = new Event($nom, $lieu, $dure, $categorie, $date, $descript, $ressource, $capacite, $sessionProfile->nom);
+$capacite = intval($capacite); // to Int
+
+$event = new Event($nom, $lieu, $dure, $categorie, $date, $descript, $ressource, $capacite, $sessionProfile->login);
 $creatEvent = new DataBase();
 $creatEvent->creatEvent($event);
 
-var_dump($event);
+header('Location:profileConnected.php');
