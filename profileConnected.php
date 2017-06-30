@@ -44,6 +44,10 @@ $profile = new DataBase();
     <div>
         <?php echo $profile->recoverEvent($_SESSION['profil']); //aficher les events ?>
     </div>
-    <h2>les evenement auqels ons participent</h2>
+    <?php if(!empty($persoSession->participation)){ //aficher les evenements auquell on participe ?> 
+        <h2>les evenement auqels ons participent</h2>
+    <?php 
+        echo $profile->participEvent($persoSession);
+    } ?>
 </body>
 </html>
