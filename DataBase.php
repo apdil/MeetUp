@@ -117,20 +117,18 @@ class DataBase {
     function participEvent($profil){
         $users = scandir('user');
         $events = scandir('event');
-        foreach($users as $user){
-            if(is_dir($user)){continue;} // delete dir
-            $userDecode = unserialize(file_get_contents('user/' . $user));
+        $userDecode = $_SESSION['profil'];
             foreach ($events as $event){
                 if(is_dir($event)){continue;} // delete dir
                 $eventDecode = unserialize(file_get_contents('event/' . $event));
                 for($i = 0 ; $i < sizeof($userDecode->participation) ; $i++){
-                    if($userDecode->participation[$i] == $eventDecode->nom && !empty($userDecode->participation[$i])){
+                    if($userDecode->participation[$i] === $eventDecode->nom){
                         $_SESSION['recoverEvent'] = $eventDecode;
                         include './designEvent.php';
+                        include './cancelEventButton.php';
                     }
                 }
             }
-        }
     }
     
 }

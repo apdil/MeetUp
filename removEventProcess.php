@@ -12,7 +12,7 @@ foreach ($filesUsers as $user){
     for ($i = 0; $i < sizeof($decodeUser->participation) ; $i++){
             
             if($decodeUser->participation[$i] == $decodEvent->nom){
-                unset($decodeUser->participation[$i]);
+                array_splice($decodeUser->participation, $i, 1);
                 $userFile = fopen('user/' . $user, 'w');
                 fwrite($userFile, serialize($decodeUser));
                 fclose($userFile);
