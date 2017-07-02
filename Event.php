@@ -14,15 +14,15 @@
 
 class Event {
     
-    public $nom;
-    public $lieu;
-    public $duree;
-    public $categorie;
-    public $date;
-    public $description;
-    public $ressources;
-    public $capacite;
-    public $creator;
+    private $nom;
+    private $lieu;
+    private $duree;
+    private $categorie;
+    private $date;
+    private $description;
+    private $ressources;
+    private $capacite;
+    private $creator;
     
     function __construct($nom, $lieu, $duree, $categorie, $date, $description, $ressources, $capacite, $creator) {
         $this->nom = $nom;
@@ -34,6 +34,42 @@ class Event {
         $this->ressources = $ressources;
         $this->capacite = $capacite;
         $this->creator = $creator;
+    }
+    
+    function getNom() {
+        return $this->nom;
+    }
+
+    function getLieu() {
+        return $this->lieu;
+    }
+
+    function getDuree() {
+        return $this->duree;
+    }
+
+    function getCategorie() {
+        return $this->categorie;
+    }
+
+    function getDate() {
+        return $this->date;
+    }
+
+    function getDescription() {
+        return $this->description;
+    }
+
+    function getRessources() {
+        return $this->ressources;
+    }
+
+    function getCapacite() {
+        return $this->capacite;
+    }
+
+    function getCreator() {
+        return $this->creator;
     }
 
 }

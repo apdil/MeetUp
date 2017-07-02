@@ -11,11 +11,11 @@ if(isset($_POST['login']) && isset($_POST['mdp'])){
     $searchFile = new Searchfile();
     $profil = $searchFile->IdentifyUser($login, $mdp);
 
+    if(!$profil){ header('Location:connexion.php'); } // si profil est null
 
     $_SESSION['profil'] = $profil;
 }
 
-if(!$profil){ header('Location:connexion.php'); } // si profil est null
 $profil = $_SESSION['profil'];
 
 echo 'Bienvenue ' . $profil->getPrenom();
