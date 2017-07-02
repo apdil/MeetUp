@@ -13,17 +13,19 @@
  */
 class Personne {
     
-    public $nom;
-    public $prenom;
-    public $login;
-    public $mdp;
-    public $dateNaissance;
-    public $region;
-    public $email;
-    public $situation;
-    public $interet; // sous forme de tableau
-    public $genre;
-    
+    private $nom;
+    private $prenom;
+    private $login;
+    private $mdp;
+    private $dateNaissance;
+    private $region;
+    private $email;
+    private $situation;
+    private $interet; // sous forme de tableau
+    private $genre;
+    private $participation = [];
+    private $myEvent = [];
+            
     function __construct($nom, $prenom, $login, $mdp, $dateNaissance, $region, $email, $interet, $genre) {
         $this->nom = $nom;
         $this->prenom = $prenom;
@@ -35,18 +37,51 @@ class Personne {
         $this->interet = $interet;
         $this->genre = $genre;
     }
+    function getNom() {
+        return $this->nom;
+    }
+
+    function getPrenom() {
+        return $this->prenom;
+    }
+
+    function getLogin() {
+        return $this->login;
+    }
+
+    function getMdp() {
+        return $this->mdp;
+    }
+
+    function getDateNaissance() {
+        return $this->dateNaissance;
+    }
+
+    function getRegion() {
+        return $this->region;
+    }
+
+    function getEmail() {
+        return $this->email;
+    }
+
+    function getSituation() {
+        return $this->situation;
+    }
+
+    function getInteret() {
+        return $this->interet;
+    }
+
+    function getGenre() {
+        return $this->genre;
+    }
+
+    function getParticipation() {
+        return $this->participation;
+    }
     
-    
-    
-    function generateHtml(){
-        echo '<br/> nom : ' . $this->nom;
-        echo '<br/> prenom : ' . $this->prenom;
-        echo '<br/> login : ' . $this->login;
-        echo '<br/> mdp : ' . $this->mdp;
-        echo '<br/> region : ' . $this->region;
-        echo '<br/> date : ' . $this->dateNaissance;
-        echo '<br/> email : ' . $this->email;
-        echo '<br/> genre : ' . $this->genre;
-        echo '<br/> interet : ' . $this->interet;
+    function getMyEvent() {
+        return $this->myEvent;
     }
 }

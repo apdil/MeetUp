@@ -1,15 +1,8 @@
 <?php
+
 session_start();
-include_once './DataBase.php';
+session_destroy();
 
-if(isset($_GET['login'])){
-    
-$login = $_GET['login'];
-$mdp = $_GET['mdp'];
-
-$connect = new DataBase();
-
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">

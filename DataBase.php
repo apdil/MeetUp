@@ -14,53 +14,32 @@
 include_once './Personne.php';
 class DataBase {
         
-    function creatFile($perso){
+    function creatFile($directory, $nameFile, $contentFile){
         
-        if(!is_dir('user')){
-            mkdir('user');
+        if(!is_dir($directory)){
+            mkdir($directory);
         }
+                
+        if(!file_exists($directory . '/' . $nameFile . '.sz')){ // si le fichier n'existe pas
+            $file = fopen($directory . '/' . $nameFile . '.sz', 'w');
+            fwrite($file, serialize($contentFile));
+            fclose($file);
+            echo 'un nouveau fichier a été crée';
+        } else {
+            echo 'fichier existant';
+        }
+    }
+    
+    function decodeFile($directory, $file){
+        
+        $contentdecode = unserialize(file_get_contents($directory . '/' . $file)); //decripte
+        return $contentdecode;
+    }
 
-        if(!file_exists('user/' . $perso->login . '.json')){
-            $file = fopen('user/' . $perso->login . '.json', 'w+');
-            fwrite($file, serialize($perso));
-            fclose($file);
-            echo 'un nouveau compte a été crée';
-        } else {
-            echo 'login existant';
-        }
-    }
-    
-    function creatEvent($event){
-        if(!is_dir('event')){
-            mkdir('event');
-        }
+    function modifFile($directory, $file, $newContent){        
         
-        if(!file_exists('event/' . $event->nom . '.sz')){
-            $file = fopen('event/' . $event->nom . '.sz', 'w+');
-            fwrite($file, serialize($event));
-            fclose($file);
-            echo 'un nouvel evenement a été crée';
-        } else {
-            echo 'evenement existant';
-        }
-    }
-    
-        
-    function recoverProfil($lastLogin, $lastMdp){
-    
-        $users = scandir('user');
-        
-        foreach ($users as $user){ // boucle sur les fichiers
-            if(is_dir($user)){ continue; }
-        
-            $contentUser = file_get_contents('user/' . $user); // recupere le contenu des fichiers
-            $decode = unserialize($contentUser);// decode le contenu = objets
-            
-            if($decode->login == $lastLogin){
-                if($decode->mdp == $lastMdp){
-                    return $decode;
-                }
-            }
-        }
+        $newFile = fopen( $directory . '/' . $file, 'w');
+        fwrite($newFile, serialize($newContent)); // reecrie
+        fclose($newFile);
     }
 }
