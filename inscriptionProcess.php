@@ -17,3 +17,5 @@ $newUser = new Personne($nom, $prenom, $login, $mdp, $date, $region, $email, $in
 
 $database = new DataBase();
 $database->creatFile('user', $newUser->getLogin(), $newUser);
+
+header('Location:connexion.php');

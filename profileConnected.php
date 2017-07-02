@@ -1,19 +1,24 @@
 <?php
 include_once './DataBase.php';
+include_once './Searchfile.php';
+include_once './Personne.php';
 session_start();
 
-$login = $_GET['login'];
-$mdp = $_GET['mdp'];
+if(isset($_POST['login']) && isset($_POST['mdp'])){
+    $login = htmlspecialchars($_POST['login']);
+    $mdp = htmlspecialchars($_POST['mdp']);
 
-$profile = new DataBase();
-$profilObject = $profile->recoverProfil($login, $mdp); // object Profil
+    $searchFile = new Searchfile();
+    $profil = $searchFile->IdentifyUser($login, $mdp);
 
-if(!is_object($profilObject)){ header('Location:connexion.php'); }
 
-$_SESSION['profil'] = $profilObject;
-$persoSession = $_SESSION['profil'];
+    $_SESSION['profil'] = $profil;
+}
 
-echo 'Bienvenue ' . $persoSession->nom;
+if(!$profil){ header('Location:connexion.php'); } // si profil est null
+$profil = $_SESSION['profil'];
+
+echo 'Bienvenue ' . $profil->getPrenom();
 
 ?>
 
@@ -24,10 +29,10 @@ echo 'Bienvenue ' . $persoSession->nom;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>connexion</title>
+    <title>profilPage</title>
 </head>
 <body>
-    <form action='#'>
+    <form action='connexion.php'>
         <input type='submit' value='deconnecter'> <!- ne detruit pas la session -->
     </form>
     <a href='creatEvent.php'>Creer un evenement?</a>
