@@ -2,6 +2,7 @@
 include_once './DataBase.php';
 include_once './Searchfile.php';
 include_once './Personne.php';
+include_once './Put.php';
 session_start();
 
 if(isset($_POST['login']) && isset($_POST['mdp'])){
@@ -11,15 +12,17 @@ if(isset($_POST['login']) && isset($_POST['mdp'])){
     $searchFile = new Searchfile();
     $profil = $searchFile->IdentifyUser($login, $mdp);
 
-    if(!$profil){ header('Location:connexion.php'); } // si profil est null
 
     $_SESSION['profil'] = $profil;
 }
 
 $profil = $_SESSION['profil'];
 
+if(!$profil){ header('Location:connexion.php'); } // si profil est null
 echo 'Bienvenue ' . $profil->getPrenom();
 
+$searchFile = new Searchfile();
+$put = new Put();
 ?>
 
 
@@ -36,5 +39,10 @@ echo 'Bienvenue ' . $profil->getPrenom();
         <input type='submit' value='deconnecter'> <!- ne detruit pas la session -->
     </form>
     <a href='creatEvent.php'>Creer un evenement?</a>
+    <?php 
+        if(!empty($profil->myEvent)){
+            $put->profilMyEvent($profil);
+        }
+     ?>
 </body>
 </html>

@@ -36,9 +36,9 @@ class DataBase {
         return $contentdecode;
     }
 
-    function modifFile($directory, $file, $newContent){        
+    function modifFile($directory, $nameFile, $newContent){        
         
-        $newFile = fopen( $directory . '/' . $file, 'w');
+        $newFile = fopen( $directory . '/' . $nameFile . '.sz', 'w');;
         fwrite($newFile, serialize($newContent)); // reecrie
         fclose($newFile);
     }

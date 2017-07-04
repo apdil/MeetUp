@@ -23,8 +23,8 @@ class Personne {
     private $situation;
     private $interet; // sous forme de tableau
     private $genre;
-    private $participation = [];
-    private $myEvent = [];
+    public $participation = [];
+    public $myEvent = [];
             
     function __construct($nom, $prenom, $login, $mdp, $dateNaissance, $region, $email, $interet, $genre) {
         $this->nom = $nom;
@@ -75,13 +75,5 @@ class Personne {
 
     function getGenre() {
         return $this->genre;
-    }
-
-    function getParticipation() {
-        return $this->participation;
-    }
-    
-    function getMyEvent() {
-        return $this->myEvent;
     }
 }

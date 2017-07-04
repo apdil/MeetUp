@@ -1,0 +1,14 @@
+
+.fx{
+    display: flex;
+}
+
+article{
+    height: 30vh;
+    width: 30%;
+    background-color: red;
+}
+
+.capacite{
+    color: orange;
+}
