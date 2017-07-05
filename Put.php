@@ -18,13 +18,9 @@ class Put {
         
         foreach($profil->myEvent as $eventName){
             $database = new DataBase();
-            echo $eventName;
-            echo '<br/>';
             $eventObject = $database->decodeFile('event', $eventName.'.sz');
-            var_dump($eventObject);
-            echo '<br/>';
             $_SESSION['event'] = $eventObject;
-//            include './putEventProfil.php';
+            include './putEventProfil.php';
         }
     }
 }

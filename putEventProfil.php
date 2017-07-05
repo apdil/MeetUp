@@ -20,11 +20,11 @@
                 <p><?php echo $_SESSION['event']->getCreator() ?></p>
             </div>
             <p>Lieux de l'événement : <?php echo $_SESSION['event']->getLieu() ?> pour 
-            <?php echo $_SESSION['event']->duree ?> le <?php echo $_SESSION['event']->getDate() ?>
+            <?php echo $_SESSION['event']->getDuree() ?> le <?php echo $_SESSION['event']->getDate() ?>
             </p> 
             <p>Type : <?php echo $_SESSION['event']->getCategorie() ?></p>
             <p>descript : <?php echo $_SESSION['event']->getDescription() ?> les besoins :
-            <?php echo $_SESSION['event']->getRessource() ?>
+            <?php echo $_SESSION['event']->getRessources() ?>
             </p>
             <p class='capacite'>capacite : <?php echo $_SESSION['event']->getCapacite() ?></p>     
         </article>

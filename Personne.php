@@ -11,6 +11,7 @@
  *
  * @author apdil
  */
+include_once './Event.php';
 class Personne {
     
     private $nom;

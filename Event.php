@@ -23,7 +23,6 @@ class Event {
     private $ressources;
     private $capacite;
     private $creator;
-    protected $link;
     
     function __construct($nom, $lieu, $duree, $categorie, $date, $description, $ressources, $capacite, $creator) {
         $this->nom = $nom;
