@@ -21,6 +21,7 @@ class Put {
             $eventObject = $database->decodeFile('event', $eventName.'.sz');
             $_SESSION['event'] = $eventObject;
             include './putEventProfil.php';
+            include './removeButt.php';
         }
     }
 }
