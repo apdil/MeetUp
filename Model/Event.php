@@ -71,5 +71,9 @@ class Event {
     function getCreator() {
         return $this->creator;
     }
+    
+    function capaciteLess(){
+        $this->capacite -= 1;
+    }
 
 }

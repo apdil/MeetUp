@@ -1,6 +1,7 @@
 <?php
 include_once '../Model/Event.php';
 include_once '../Model/DataBase.php';
+include_once '../Model/Personne.php';
 session_start();
 $profil = $_SESSION['profil'];
 
@@ -24,7 +25,6 @@ for( $i = 0; $i < sizeof($profil->myEvent) ; $i++){ //si l'event existe
     }
 }
 $profil->myEvent[] = $event->getNom();
-var_dump($profil->myEvent);
 $database->modifFile('user', $profil->getLogin(), $profil);
 
 header('location:../View/profileConnected.php');

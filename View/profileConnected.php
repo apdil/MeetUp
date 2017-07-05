@@ -3,6 +3,9 @@ include_once '../Model/Personne.php';
 include_once '../Model/DataBase.php';
 session_start();
 $profil = $_SESSION['profil'];
+echo 'Bienvenue ' . $profil->getLogin();
+echo '<br/>';
+var_dump($profil);
 ?>
 
 <!DOCTYPE html>
@@ -25,10 +28,10 @@ $profil = $_SESSION['profil'];
         $eventObject = $database->decodeFile('event', $eventName.'.sz');
         include '../Partial/displayEvent.php';?>
     
-    <form action='../Controller/removeEventProcess.php' method='POST'>
+        <form action='../Controller/removeEventProcess.php' method='POST'>
             <input type='hidden' value=<?php echo $eventName; ?> name='eventName'>
             <input type='submit' value='Delete'>
-    </form>
+        </form>
     <?php } ?>
 </body>
 </html>

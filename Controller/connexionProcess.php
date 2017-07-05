@@ -26,3 +26,5 @@ foreach ($users as $user){ // boucle sur les fichiers
         }
     }
 }
+
+//header('location:../View/connexion.php');
