@@ -24,4 +24,14 @@ class Put {
             include './removeButt.php';
         }
     }
+    
+    function indexAllEvent(){
+        $events = scandir('event');
+        $database = new DataBase();
+        foreach($events as $event){
+            $eventObject = $database->decodeFile('event', $event);
+            $_SESSION['event'] = $eventObject;
+            include './putEventProfil.php';
+        }
+    }
 }

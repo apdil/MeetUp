@@ -1,7 +1,6 @@
 <?php
-include_once './DataBase.php';
-include_once './Event.php';
-include_once './Personne.php';
+include_once '../Model/Event.php';
+include_once '../Model/DataBase.php';
 session_start();
 $profil = $_SESSION['profil'];
 
@@ -17,11 +16,10 @@ $ressource = htmlspecialchars($_POST['ressource']);
 $event = new Event($nom, $lieu, $dure, $categorie, $date, $descript, $ressource, $capacite, $profil->getLogin());
 $database = new DataBase();
 $database->creatFile('event', $event->getNom(), $event);
-echo '<br/>';
 
 for( $i = 0; $i < sizeof($profil->myEvent) ; $i++){ //si l'event existe
     if($profil->myEvent[$i] == $event->getNom()){
-        header('location:profileConnected.php');
+        header('location:../View/profileConnected.php');
         return;
     }
 }
@@ -29,4 +27,4 @@ $profil->myEvent[] = $event->getNom();
 var_dump($profil->myEvent);
 $database->modifFile('user', $profil->getLogin(), $profil);
 
-header('location:profileConnected.php');
+header('location:../View/profileConnected.php');

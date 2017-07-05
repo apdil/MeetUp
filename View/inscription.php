@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +8,7 @@
 </head>
 <body>
     <h2>Welcome to Libertyyyyy</h2>
-    <form action='inscriptionProcess.php' method='post'>
+    <form action='../Controller/inscriptionProcess.php' method='post'>
         <label for='nom'>Nom : </label>
         <input type='text' name='nom' id='nom'>
         <br/>

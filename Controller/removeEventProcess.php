@@ -1,6 +1,5 @@
 <?php
-include_once './Personne.php';
-include_once './Event.php';
+include_once '../Model/Personne.php';
 session_start();
 
 $profil = $_SESSION['profil'];
@@ -11,5 +10,6 @@ for($i = 0 ; $i < sizeof($profil->myEvent) ; $i++){
         array_splice($profil->myEvent, $i, 1);
     }
 }
-unlink('event/' . $eventName . '.sz');
-header('Location:profileConnected.php');
+
+unlink('../event/' . $eventName . '.sz');
+header('Location:../View/profileConnected.php');

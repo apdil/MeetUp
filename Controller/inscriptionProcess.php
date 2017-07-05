@@ -1,7 +1,7 @@
 <?php
 
-include_once 'Personne.php';
-include_once 'DataBase.php';
+include_once '../Model/Personne.php';
+include_once '../Model/DataBase.php';
 
 $nom = htmlspecialchars($_POST['nom']);
 $prenom = htmlspecialchars($_POST['prenom']);
@@ -18,4 +18,4 @@ $newUser = new Personne($nom, $prenom, $login, $mdp, $date, $region, $email, $in
 $database = new DataBase();
 $database->creatFile('user', $newUser->getLogin(), $newUser);
 
-header('Location:connexion.php');
+header('Location:../View/connexion.php');
