@@ -75,5 +75,9 @@ class Event {
     function capaciteLess(){
         $this->capacite -= 1;
     }
+    
+    function capaciteMore(){
+        $this->capacite += 1;
+    }
 
 }

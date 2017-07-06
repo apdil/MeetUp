@@ -14,16 +14,14 @@ $date = htmlspecialchars($_POST['date']);
 $capacite = htmlspecialchars(intval($_POST['capacite']));
 $ressource = htmlspecialchars($_POST['ressource']);
 
+if(file_exists('../event/' . $nom . '.sz')){
+    header('location:../View/profileConnected.php');
+    return;
+}
 $event = new Event($nom, $lieu, $dure, $categorie, $date, $descript, $ressource, $capacite, $profil->getLogin());
 $database = new DataBase();
 $database->creatFile('event', $event->getNom(), $event);
 
-for( $i = 0; $i < sizeof($profil->myEvent) ; $i++){ //si l'event existe
-    if($profil->myEvent[$i] == $event->getNom()){
-        header('location:../View/profileConnected.php');
-        return;
-    }
-}
 $profil->myEvent[] = $event->getNom();
 $database->modifFile('user', $profil->getLogin(), $profil);
 

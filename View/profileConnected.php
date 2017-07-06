@@ -5,7 +5,6 @@ session_start();
 $profil = $_SESSION['profil'];
 echo 'Bienvenue ' . $profil->getLogin();
 echo '<br/>';
-var_dump($profil);
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +21,9 @@ var_dump($profil);
     <a href='creatEvent.php'>Creer un evenement?</a>
     <br/>
     <a href='index.php'>Index</a>
-    <?php
+    <?php if(!empty($profil->myEvent)){?>
+    <h2>Mes evenements</h2>
+    <?php }
     foreach($profil->myEvent as $eventName){ // affiche les evenement crée
         $database = new DataBase();
         $eventObject = $database->decodeFile('event', $eventName.'.sz');
@@ -31,6 +32,18 @@ var_dump($profil);
         <form action='../Controller/removeEventProcess.php' method='POST'>
             <input type='hidden' value=<?php echo $eventName; ?> name='eventName'>
             <input type='submit' value='Delete'>
+        </form>
+    <?php } if(!empty($profil->participation)){?>
+        <h2>Les evenements auquels je participe</h2>
+    <?php } 
+       foreach($profil->participation as $eventName){ // affiche les evenement crée
+        $database = new DataBase();
+        $eventObject = $database->decodeFile('event', $eventName.'.sz');
+        include '../Partial/displayEvent.php';?>
+    
+        <form action='../Controller/annulParticipEventProcess.php' method='POST'>
+            <input type='hidden' value=<?php echo $eventName; ?> name='eventName'>
+            <input type='submit' value="j'annule">
         </form>
     <?php } ?>
 </body>

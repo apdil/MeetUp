@@ -31,4 +31,4 @@ foreach($users as $user){
     }
 }
 
-//header('Location:../View/profileConnected.php');
+header('Location:../View/profileConnected.php');
