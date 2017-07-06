@@ -16,10 +16,15 @@
         <label for='dure'>Durée : </label>
         <input type='text' name='dure' id='dure'>
         <br/>
-        <input type='radio' name='categorie' id='categorie' value='Fete'>Fete
-        <input type='radio' name='categorie' id='categorie' value='Travaille'>Travaille
-        <input type='radio' name='categorie' id='categorie' value='Aide'>Aide
-        <input type='radio' name='categorie' id='categorie' value='Partage'>Partage
+        <input type='checkbox' name='categorie[]' value='fete'>Fete
+        <input type='checkbox' name='categorie[]' value='voyage'>Voyage
+        <input type='checkbox' name='categorie[]' value='music'>Music
+        <input type='checkbox' name='categorie[]' value='litterature'>Litterature
+        <input type='checkbox' name='categorie[]' value='high-tech'>High-tech
+        <input type='checkbox' name='categorie[]' value='apprendre'>Apprendre
+        <input type='checkbox' name='categorie[]' value='sport'>Sport
+        <input type='checkbox' name='categorie[]' value='aider'>Aider
+        <input type='checkbox' name='categorie[]' value='travail'>Travail
         <br/>
         <label for='date'>Date : </label>
         <input type='date' name='date' id='date'>

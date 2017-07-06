@@ -49,16 +49,15 @@
         <input type='radio' name='genre' id='genre' value='Femme'>Femme
         <br/>
         <label for='interet'>Interet : </label>
-        <input type='checkbox' name='interet' value='fete'>Fete
-        <input type='checkbox' name='interet' value='voyage'>Voyage
-        <input type='checkbox' name='interet' value='music'>Music
-        <input type='checkbox' name='interet' value='cuisine'>Cuisine
-        <input type='checkbox' name='interet' value='high-tech'>High-tech
-        <input type='checkbox' name='interet' value='apprendre'>Apprendre
-        <input type='checkbox' name='interet' value='enseigner'>Enseigner
-        <input type='checkbox' name='interet' value='aider'>Aider
-        <input type='checkbox' name='interet' value='argent'>Argent
-        <input type='checkbox' name='interet' value='voyage'>Voyage
+        <input type='checkbox' name='interet[]' value='fete'>Fete
+        <input type='checkbox' name='interet[]' value='voyage'>Voyage
+        <input type='checkbox' name='interet[]' value='music'>Music
+        <input type='checkbox' name='interet[]' value='litterature'>Litterature
+        <input type='checkbox' name='interet[]' value='high-tech'>High-tech
+        <input type='checkbox' name='interet[]' value='apprendre'>Apprendre
+        <input type='checkbox' name='interet[]' value='sport'>Sport
+        <input type='checkbox' name='interet[]' value='aider'>Aider
+        <input type='checkbox' name='interet[]' value='travail'>Travail
         <br/>
         <input type='submit' value='Validez'>
     </form>

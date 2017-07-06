@@ -11,9 +11,11 @@ $region = htmlspecialchars($_POST['region']);
 $date = htmlspecialchars($_POST['date']);
 $email = htmlspecialchars($_POST['email']);
 $genre = htmlspecialchars($_POST['genre']);
-$interet = htmlspecialchars($_POST['interet']);
+foreach($_POST["interet"] as $check){ // recuper les checkbox en tableau
+$interetTab[] = $check;
+}
 
-$newUser = new Personne($nom, $prenom, $login, $mdp, $date, $region, $email, $interet, $genre);
+$newUser = new Personne($nom, $prenom, $login, $mdp, $date, $region, $email, $interetTab, $genre);
 
 $database = new DataBase();
 $database->creatFile('user', $newUser->getLogin(), $newUser);

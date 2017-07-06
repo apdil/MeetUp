@@ -8,7 +8,9 @@ $profil = $_SESSION['profil'];
 $nom = htmlspecialchars($_POST['nom']);
 $lieu = htmlspecialchars($_POST['lieu']);
 $dure = htmlspecialchars($_POST['dure']);
-$categorie = htmlspecialchars($_POST['categorie']);
+foreach($_POST["categorie"] as $check){ // recuper les checkbox en tableau
+$categorieTab[] = $check;
+}
 $descript = htmlspecialchars($_POST['descript']);
 $date = htmlspecialchars($_POST['date']);
 $capacite = htmlspecialchars(intval($_POST['capacite']));
@@ -18,7 +20,7 @@ if(file_exists('../event/' . $nom . '.sz')){
     header('location:../View/profileConnected.php');
     return;
 }
-$event = new Event($nom, $lieu, $dure, $categorie, $date, $descript, $ressource, $capacite, $profil->getLogin());
+$event = new Event($nom, $lieu, $dure, $categorieTab, $date, $descript, $ressource, $capacite, $profil->getLogin());
 $database = new DataBase();
 $database->creatFile('event', $event->getNom(), $event);
 

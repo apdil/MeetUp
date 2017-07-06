@@ -7,7 +7,8 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Index</title>
+        <link rel="stylesheet" type="text/css" href="../styleEvent.css">
     </head>
     <body>
         <h2>Bienvenue sur JUMP</h2>
@@ -19,7 +20,9 @@
         <a href='connexion.php'>Se connecter...</a>
         <br/>
         <a href='inscription.php'>S'Inscrire</a>
-        <?php }
+        <?php } ?>
+        <h2>All evenement</h2>
+        <?php
         $events = scandir('../event');
         $database = new DataBase();
         foreach($events as $event){
