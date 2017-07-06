@@ -6,7 +6,7 @@
     </head>
     <body>
     <h2>Creat your Event</h2>
-    <form action='eventProcess.php' methode='GET'>
+    <form action='../Controller/creatEventProcess.php' method='POST'>
         <label for='nom'>Nom : </label>
         <input type='text' name='nom' id='nom'>
         <br/>
