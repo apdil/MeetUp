@@ -6,7 +6,7 @@
     <p>Lieux de l'événement : <?php echo $eventObject->getLieu() ?> pour 
     <?php echo $eventObject->getDuree() ?> le <?php echo $eventObject->getDate() ?>
     </p> 
-    <p>Type : <?php echo $eventObject->getCategorie() ?></p>
+    <p>Type : <?php foreach($eventObject->getCategorie() as $type){ echo $type.', ';} ?></p>
     <p>descript : <?php echo $eventObject->getDescription() ?> les besoins :
     <?php echo $eventObject->getRessources() ?>
     </p>

@@ -19,7 +19,7 @@
         <input type='checkbox' name='categorie[]' value='fete'>Fete
         <input type='checkbox' name='categorie[]' value='voyage'>Voyage
         <input type='checkbox' name='categorie[]' value='music'>Music
-        <input type='checkbox' name='categorie[]' value='litterature'>Litterature
+        <input type='checkbox' name='categorie[]' value='art'>Art
         <input type='checkbox' name='categorie[]' value='high-tech'>High-tech
         <input type='checkbox' name='categorie[]' value='apprendre'>Apprendre
         <input type='checkbox' name='categorie[]' value='sport'>Sport

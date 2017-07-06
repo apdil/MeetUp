@@ -52,7 +52,7 @@
         <input type='checkbox' name='interet[]' value='fete'>Fete
         <input type='checkbox' name='interet[]' value='voyage'>Voyage
         <input type='checkbox' name='interet[]' value='music'>Music
-        <input type='checkbox' name='interet[]' value='litterature'>Litterature
+        <input type='checkbox' name='interet[]' value='art'>Art
         <input type='checkbox' name='interet[]' value='high-tech'>High-tech
         <input type='checkbox' name='interet[]' value='apprendre'>Apprendre
         <input type='checkbox' name='interet[]' value='sport'>Sport
