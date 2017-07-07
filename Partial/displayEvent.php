@@ -1,4 +1,4 @@
-<article>
+<article class='col-sm-4'>
     <div class='fx'>
         <h2><?php echo $eventObject->getNom() ?></h2>
         <p><?php echo $eventObject->getCreator() ?></p>
