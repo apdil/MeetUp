@@ -1,12 +1,12 @@
 <?php 
 include_once '../Model/Personne.php';
  ?>
-<header class='navbar navbar-inverse navbar-fixed-top'>
+<header class='navbar navbar-inverse'>
     <nav class='container-fluid'>
         <div class="navbar-header">
             <a class="navbar-brand" href="#">JUMP</a>
         </div>
-        <ul class="nav navbar-nav navbar-right ">
+        <ul class="nav mr-auto">
             <li><a href="#">Home</a></li>
             <li><a href="#">Carte</a></li>
             <li><a href="#">BUZZ</a></li>
