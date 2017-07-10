@@ -1,4 +1,4 @@
-<article class='col-sm-4'>
+<article class=''>
     <div class='fx'>
         <h2><?php echo $eventObject->getNom() ?></h2>
         <p><?php echo $eventObject->getCreator() ?></p>
@@ -10,5 +10,5 @@
     <p>descript : <?php echo $eventObject->getDescription() ?> les besoins :
     <?php echo $eventObject->getRessources() ?>
     </p>
-    <p class='capacite'>capacite : <?php echo $eventObject->getCapacite() ?></p>     
+    <p class='capacite'>capacite : <?php echo $eventObject->getCapacite() ?></p>   
 </article>

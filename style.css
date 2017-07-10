@@ -9,5 +9,30 @@
 
 .slidSiz{
     width: 100%;
-    height:50vh;
+    height:90vh;
 }
+
+.cardSize{
+  width: 100%;
+  height:20rem;
+}
+.margin0{
+  margin: 0;
+}
+
+/*div .carousel-indicators li{
+  height: 0;
+  width: 0;
+  border: 0px;
+}*/
+
+/*.carousel-indicators {
+position: absolute;
+bottom: 10px;
+left: 0;
+z-index: 15;
+width: 60%;
+margin-left: 20px;
+list-style: none;
+text-align: center;
+}*/

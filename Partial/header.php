@@ -1,24 +1,23 @@
 <?php 
 include_once '../Model/Personne.php';
  ?>
-<header class='navbar navbar-inverse'>
+<header class='navbar navbar-inverse margin0'>
     <nav class='container-fluid'>
         <div class="navbar-header">
             <a class="navbar-brand" href="#">JUMP</a>
         </div>
         <ul class="nav mr-auto">
-            <li><a href="#">Home</a></li>
             <li><a href="#">Carte</a></li>
             <li><a href="#">BUZZ</a></li>
             <li><a href="#">Message</a></li>
-            <li><a href="#">Profil</a></li>
-        </ul>
         <?php if(isset($_SESSION['profil'])){ ?>
-        <a href='profileConnected.php'>Mon Profil</a>
-        <a href='../Controller/deconectProcess.php'>Se Deconnecter</a>
+        <li><a href='profileConnected.php'>Profil</a></li>
+        <li><a href='../Controller/deconectProcess.php'>Se Deconnecter</a></li>  
+        </ul>
         <?php } else {?>
-        <!--<a class='col-sm-1' href='connexion.php'>Se connecter...</a>
-        <a class='col-sm-1' href='inscription.php'>S'Inscrire</a>-->
+        <li><a href='connexion.php'>Se connecter...</a></li>
+        <li><a href='inscription.php'>S'Inscrire</a></li>
+        </ul>
         <?php } ?>
     </nav>
 </header>
