@@ -103,158 +103,333 @@
             </a>
         </div>
         <main class='container'>
-            <section class='container-fluid row'>
-                <div class="container text-center my-3">
-                    <h2 class='container row'>All evenement</h2>
-                    <div class="row mx-auto my-auto">
-                        <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
-                            <div class="carousel-inner" role="listbox">
-                                <section class='container-fluid row'>
-                                    <?php
-                                    $i = 0;
-                                    foreach($events as $event){
-                                        if(is_dir($event)) { continue; }
-                                        $eventObject = $database->decodeFile('event', $event);
-                                            if($i == 0){
-                                                echo '<div class="carousel-item active">';
+            <section class='container-fluid row marginSection'>
+                <h2 class='txt-align-center w-100'>Tous les événements</h2>
+                <div class="container-fluid">
+                    <div id="carouselAll" class="carousel slide" data-ride="carousel" data-interval="9000">
+                        <div class="carousel-inner row w-100 mx-auto" role="listbox">
+                            <?php
+                            $i = 0;
+                                                    foreach($events as $event){
+                                                        if(is_dir($event)) { continue; }
+                                                        $eventObject = $database->decodeFile('event', $event);
+                                                            if($i == 0){
+                                                                echo '<div class="carousel-item active">';
+                                                            } else{
+                                                                echo '<div class="carousel-item">';
+                                                            }
+                                                            include '../Partial/displayEventIndex.php';
+                                                            echo '</div>';
+                                                            $i++;
+                                                        }?>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselAll" role="button" data-slide="prev">
+                            <i class="fa fa-chevron-left fa-lg text-muted"></i>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next text-faded" href="#carouselAll" role="button" data-slide="next">
+                            <i class="fa fa-chevron-right fa-lg text-muted"></i>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <section class='container-fluid row marginSection'>
+                <h2 class='txt-align-center w-100'>FETE</h2>
+                <div class="container-fluid">
+                    <div id="carouselFete" class="carousel slide" data-ride="carousel" data-interval="9000">
+                        <div class="carousel-inner row w-100 mx-auto" role="listbox">
+                            <?php
+                            $i = 0;
+                            foreach($events as $event){
+                                if(is_dir($event)) { continue; }
+                                    $eventObject = $database->decodeFile('event', $event);
+                                    if(in_array('fete', $eventObject->getCategorie()) == 'fete'){
+                                        if($i == 0){
+                                        echo '<div class="carousel-item active">';
                                             } else{
                                                 echo '<div class="carousel-item">';
                                             }
-                                            include '../Partial/displayEventIndex.php';
-                                            echo '</div>';
-                                            $i++;
-                                        }?>
-                                </section>
-                                <!--<div class="carousel-item active">
-                                    <img class="d-block col-4 img-fluid" src="http://placehold.it/350x180?text=1">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block col-4 img-fluid" src="http://placehold.it/350x180?text=2">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block col-4 img-fluid" src="http://placehold.it/350x180?text=3">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block col-4 img-fluid" src="http://placehold.it/350x180?text=4">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block col-4 img-fluid" src="http://placehold.it/350x180?text=5">
-                                </div>
-                                <div class="carousel-item">
-                                    <img class="d-block col-4 img-fluid" src="http://placehold.it/350x180?text=6">
-                                </div>-->
-                            </div>
-                            <a class="carousel-control-prev" href="#recipeCarousel" role="button" data-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#recipeCarousel" role="button" data-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
+                                        include '../Partial/displayEventIndex.php';
+                                        echo '</div>';
+                                        $i++;
+                                    }
+                                }?>
                         </div>
+                        <a class="carousel-control-prev" href="#carouselFete" role="button" data-slide="prev">
+                            <i class="fa fa-chevron-left fa-lg text-muted"></i>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next text-faded" href="#carouselFete" role="button" data-slide="next">
+                            <i class="fa fa-chevron-right fa-lg text-muted"></i>
+                            <span class="sr-only">Next</span>
+                        </a>
                     </div>
-                    <h4>Advances one slide at a time</h4>
                 </div>
             </section>
-            <section class='container-fluid row'>
-            <h2 class='container row'>Fete</h2>
-                <?php
-                foreach($events as $event){
-                    if(is_dir($event)) { continue; }
-                    $eventObject = $database->decodeFile('event', $event);
-                    if(in_array('fete', $eventObject->getCategorie()) == 'fete'){
-                        include '../Partial/displayEventIndex.php';
-                    } 
-                }?>
+            <section class='container-fluid row marginSection'>
+                <h2 class='txt-align-center w-100'>VOYAGE</h2>
+                <div class="container-fluid">
+                    <div id="carouselVoyage" class="carousel slide" data-ride="carousel" data-interval="9000">
+                        <div class="carousel-inner row w-100 mx-auto" role="listbox">
+                            <?php
+                            $i = 0;
+                            foreach($events as $event){
+                                if(is_dir($event)) { continue; }
+                                    $eventObject = $database->decodeFile('event', $event);
+                                    if(in_array('voyage', $eventObject->getCategorie()) == 'voyage'){
+                                        if($i == 0){
+                                        echo '<div class="carousel-item active">';
+                                            } else{
+                                                echo '<div class="carousel-item">';
+                                            }
+                                        include '../Partial/displayEventIndex.php';
+                                        echo '</div>';
+                                        $i++;
+                                    }
+                                }?>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselVoyage" role="button" data-slide="prev">
+                            <i class="fa fa-chevron-left fa-lg text-muted"></i>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next text-faded" href="#carouselVoyage" role="button" data-slide="next">
+                            <i class="fa fa-chevron-right fa-lg text-muted"></i>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
             </section>
-            <section class='container-fluid row'>
-                <h2 class='container row'>Voyage</h2>
-                <?php
-                foreach($events as $event){
-                    if(is_dir($event)) { continue; }
-                    $eventObject = $database->decodeFile('event', $event);
-                    if(in_array('voyage', $eventObject->getCategorie()) == 'voyage'){
-                        include '../Partial/displayEventIndex.php';
-                    } 
-                } ?>
+            <section class='container-fluid row marginSection'>
+                <h2 class='txt-align-center w-100'>MUSIC</h2>
+                <div class="container-fluid">
+                    <div id="carouselMusic" class="carousel slide" data-ride="carousel" data-interval="9000">
+                        <div class="carousel-inner row w-100 mx-auto" role="listbox">
+                            <?php
+                            $i = 0;
+                            foreach($events as $event){
+                                if(is_dir($event)) { continue; }
+                                    $eventObject = $database->decodeFile('event', $event);
+                                    if(in_array('music', $eventObject->getCategorie()) == 'music'){
+                                        if($i == 0){
+                                        echo '<div class="carousel-item active">';
+                                            } else{
+                                                echo '<div class="carousel-item">';
+                                            }
+                                        include '../Partial/displayEventIndex.php';
+                                        echo '</div>';
+                                        $i++;
+                                    }
+                                }?>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselMusic" role="button" data-slide="prev">
+                            <i class="fa fa-chevron-left fa-lg text-muted"></i>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next text-faded" href="#carouselMusic" role="button" data-slide="next">
+                            <i class="fa fa-chevron-right fa-lg text-muted"></i>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
             </section>
-            <section class='container-fluid row'>
-                <h2 class='container row'>Music</h2>
-                <?php
-                foreach($events as $event){
-                    if(is_dir($event)) { continue; }
-                    $eventObject = $database->decodeFile('event', $event);
-                    if(in_array('music', $eventObject->getCategorie()) == 'music'){
-                        include '../Partial/displayEventIndex.php';
-                    } 
-                } ?>
+            <section class='container-fluid row marginSection'>
+                <h2 class='txt-align-center w-100'>ART</h2>
+                <div class="container-fluid">
+                    <div id="carouselArt" class="carousel slide" data-ride="carousel" data-interval="9000">
+                        <div class="carousel-inner row w-100 mx-auto" role="listbox">
+                            <?php
+                            $i = 0;
+                            foreach($events as $event){
+                                if(is_dir($event)) { continue; }
+                                    $eventObject = $database->decodeFile('event', $event);
+                                    if(in_array('art', $eventObject->getCategorie()) == 'art'){
+                                        if($i == 0){
+                                        echo '<div class="carousel-item active">';
+                                            } else{
+                                                echo '<div class="carousel-item">';
+                                            }
+                                        include '../Partial/displayEventIndex.php';
+                                        echo '</div>';
+                                        $i++;
+                                    }
+                                }?>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselArt" role="button" data-slide="prev">
+                            <i class="fa fa-chevron-left fa-lg text-muted"></i>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next text-faded" href="#carouselArt" role="button" data-slide="next">
+                            <i class="fa fa-chevron-right fa-lg text-muted"></i>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
             </section>
-            <section class='container-fluid row'>
-                <h2 class='container row'>Art</h2>
-                <?php
-                foreach($events as $event){
-                    if(is_dir($event)) { continue; }
-                    $eventObject = $database->decodeFile('event', $event);
-                    if(in_array('art', $eventObject->getCategorie()) == 'art'){
-                        include '../Partial/displayEventIndex.php';
-                    }
-                } ?>
+            <section class='container-fluid row marginSection'>
+                <h2 class='txt-align-center w-100'>HIGH-TECH</h2>
+                <div class="container-fluid">
+                    <div id="carouselTech" class="carousel slide" data-ride="carousel" data-interval="9000">
+                        <div class="carousel-inner row w-100 mx-auto" role="listbox">
+                            <?php
+                            $i = 0;
+                            foreach($events as $event){
+                                if(is_dir($event)) { continue; }
+                                    $eventObject = $database->decodeFile('event', $event);
+                                        if(in_array('high-tech', $eventObject->getCategorie()) == 'high-tech'){
+                                        if($i == 0){
+                                        echo '<div class="carousel-item active">';
+                                            } else{
+                                                echo '<div class="carousel-item">';
+                                            }
+                                        include '../Partial/displayEventIndex.php';
+                                        echo '</div>';
+                                        $i++;
+                                    }
+                                }?>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselTech" role="button" data-slide="prev">
+                            <i class="fa fa-chevron-left fa-lg text-muted"></i>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next text-faded" href="#carouselTech" role="button" data-slide="next">
+                            <i class="fa fa-chevron-right fa-lg text-muted"></i>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
             </section>
-            <section class='container-fluid row'>
-                <h2 class='container row'>Hight-tech</h2>
-                <?php
-                foreach($events as $event){
-                    if(is_dir($event)) { continue; }
-                    $eventObject = $database->decodeFile('event', $event);
-                    if(in_array('high-tech', $eventObject->getCategorie()) == 'high-tech'){
-                        include '../Partial/displayEventIndex.php';
-                    }
-                } ?>
+            <section class='container-fluid row marginSection'>
+                <h2 class='txt-align-center w-100'>APPRENDRE</h2>
+                <div class="container-fluid">
+                    <div id="carouselApprendre" class="carousel slide" data-ride="carousel" data-interval="9000">
+                        <div class="carousel-inner row w-100 mx-auto" role="listbox">
+                            <?php
+                            $i = 0;
+                            foreach($events as $event){
+                                if(is_dir($event)) { continue; }
+                                    $eventObject = $database->decodeFile('event', $event);
+                                        if(in_array('apprendre', $eventObject->getCategorie()) == 'apprendre'){
+                                        if($i == 0){
+                                        echo '<div class="carousel-item active">';
+                                            } else{
+                                                echo '<div class="carousel-item">';
+                                            }
+                                        include '../Partial/displayEventIndex.php';
+                                        echo '</div>';
+                                        $i++;
+                                    }
+                                }?>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselApprendre" role="button" data-slide="prev">
+                            <i class="fa fa-chevron-left fa-lg text-muted"></i>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next text-faded" href="#carouselApprendre" role="button" data-slide="next">
+                            <i class="fa fa-chevron-right fa-lg text-muted"></i>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
             </section>
-            <section class='container-fluid row'>
-                <h2 class='container row'>Apprendre</h2>
-                <?php
-                foreach($events as $event){
-                    if(is_dir($event)) { continue; }
-                    $eventObject = $database->decodeFile('event', $event);
-                    if(in_array('apprendre', $eventObject->getCategorie()) == 'apprendre'){
-                        include '../Partial/displayEventIndex.php';
-                    }
-                } ?>
+            <section class='container-fluid row marginSection'>
+                <h2 class='txt-align-center w-100'>SPORT</h2>
+                <div class="container-fluid">
+                    <div id="carouselSport" class="carousel slide" data-ride="carousel" data-interval="9000">
+                        <div class="carousel-inner row w-100 mx-auto" role="listbox">
+                            <?php
+                            $i = 0;
+                            foreach($events as $event){
+                                if(is_dir($event)) { continue; }
+                                    $eventObject = $database->decodeFile('event', $event);
+                                        if(in_array('sport', $eventObject->getCategorie()) == 'sport'){
+                                        if($i == 0){
+                                        echo '<div class="carousel-item active">';
+                                            } else{
+                                                echo '<div class="carousel-item">';
+                                            }
+                                        include '../Partial/displayEventIndex.php';
+                                        echo '</div>';
+                                        $i++;
+                                    }
+                                }?>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselSport" role="button" data-slide="prev">
+                            <i class="fa fa-chevron-left fa-lg text-muted"></i>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next text-faded" href="#carouselSport" role="button" data-slide="next">
+                            <i class="fa fa-chevron-right fa-lg text-muted"></i>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
             </section>
-            <section class='container-fluid row'>
-                <h2 class='container row'>Sport</h2>
-                <?php
-                foreach($events as $event){
-                    if(is_dir($event)) { continue; }
-                    $eventObject = $database->decodeFile('event', $event);
-                    if(in_array('sport', $eventObject->getCategorie()) == 'sport'){
-                        include '../Partial/displayEventIndex.php';
-                    }
-                } ?>
+            <section class='container-fluid row marginSection'>
+                <h2 class='txt-align-center w-100'>PARTAGE</h2>
+                <div class="container-fluid">
+                    <div id="carouselPartage" class="carousel slide" data-ride="carousel" data-interval="9000">
+                        <div class="carousel-inner row w-100 mx-auto" role="listbox">
+                            <?php
+                            $i = 0;
+                            foreach($events as $event){
+                                if(is_dir($event)) { continue; }
+                                    $eventObject = $database->decodeFile('event', $event);
+                                        if(in_array('aider', $eventObject->getCategorie()) == 'aider'){
+                                        if($i == 0){
+                                        echo '<div class="carousel-item active">';
+                                            } else{
+                                                echo '<div class="carousel-item">';
+                                            }
+                                        include '../Partial/displayEventIndex.php';
+                                        echo '</div>';
+                                        $i++;
+                                    }
+                                }?>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselPartage" role="button" data-slide="prev">
+                            <i class="fa fa-chevron-left fa-lg text-muted"></i>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next text-faded" href="#carouselPartage" role="button" data-slide="next">
+                            <i class="fa fa-chevron-right fa-lg text-muted"></i>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
             </section>
-            <section class='container-fluid row'>
-                <h2 class='container row'>Aider</h2>
-                <?php
-                foreach($events as $event){
-                    if(is_dir($event)) { continue; }
-                    $eventObject = $database->decodeFile('event', $event);
-                    if(in_array('aider', $eventObject->getCategorie()) == 'aider'){
-                        include '../Partial/displayEventIndex.php';
-                    }
-                } ?>
-            </section>
-            <section class='container-fluid row'>
-                <h2 class='container row'>Travailler</h2>
-                <?php
-                foreach($events as $event){
-                    if(is_dir($event)) { continue; }
-                    $eventObject = $database->decodeFile('event', $event);
-                    if(in_array('travailler', $eventObject->getCategorie()) == 'travailler'){
-                        include '../Partial/displayEventIndex.php';
-                    }
-                } ?>
+            <section class='container-fluid row marginSection'>
+                <h2 class='txt-align-center w-100'>TRAVAIL</h2>
+                <div class="container-fluid">
+                    <div id="carouselTravail" class="carousel slide" data-ride="carousel" data-interval="9000">
+                        <div class="carousel-inner row w-100 mx-auto" role="listbox">
+                            <?php
+                            $i = 0;
+                            foreach($events as $event){
+                                if(is_dir($event)) { continue; }
+                                    $eventObject = $database->decodeFile('event', $event);
+                                        if(in_array('travailler', $eventObject->getCategorie()) == 'travailler'){
+                                        if($i == 0){
+                                        echo '<div class="carousel-item active">';
+                                            } else{
+                                                echo '<div class="carousel-item">';
+                                            }
+                                        include '../Partial/displayEventIndex.php';
+                                        echo '</div>';
+                                        $i++;
+                                    }
+                                }?>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselTravail" role="button" data-slide="prev">
+                            <i class="fa fa-chevron-left fa-lg text-muted"></i>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next text-faded" href="#carouselTravail" role="button" data-slide="next">
+                            <i class="fa fa-chevron-right fa-lg text-muted"></i>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
             </section>
         </main>
         <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
