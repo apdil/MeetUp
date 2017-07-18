@@ -9,7 +9,7 @@
     <link rel="stylesheet" href='../style.css'>      
     <title>connexion</title>
 </head>
-<body>
+<body class='container-fluid'>
     <?php include_once '../Partial/header.php' ?>
     <main class='container-fluid d-md-flex'>
         <section class='container col-md-4 borderRight'>

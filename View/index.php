@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">        
         <link rel="stylesheet" href='../style.css'>      
     </head>
-    <body>
+    <body class='container-fluid'>
         <?php include_once '../Partial/header.php' ?>
         <div id="carouselExampleIndicators" class="carousel slide slidSiz container" data-ride="carousel">
             <ol class="carousel-indicators">
