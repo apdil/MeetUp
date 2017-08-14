@@ -10,7 +10,7 @@
     <title>connexion</title>
 </head>
 <body class='container-fluid'>
-    <?php include_once '../Partial/header.php' ?>
+    <?php include_once '../Partial/header.php'; ?>
     <main class='container-fluid d-md-flex'>
         <section class='container col-md-4 borderRight'>
             <h2 class='d-flex justify-content-md-end justify-content-sm-center mb-6'>Connexion</h2>

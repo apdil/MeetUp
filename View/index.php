@@ -33,63 +33,63 @@
                     <img class="d-block slidSiz" src="../img/help-nav.jpg" alt="First slide">
                     <div class="carousel-caption d-none d-md-block">
                         <h1>HELP</h1>
-                        <p>Un coup de main ?</p>
+                        <p>help</p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img class="d-block slidSiz" src="../img/travail-nav.jpg" alt="Second slide">
                     <div class="carousel-caption d-none d-md-block">
                         <h1>TRAVAIL</h1>
-                        <p>Etender votre reseau</p>
+                        <p>travail</p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img class="d-block slidSiz" src="../img/music-nav.jpg" alt="Third slide">
                     <div class="carousel-caption d-none d-md-block">
                         <h1>MUSIC</h1>
-                        <p>Deviens Music</p>
+                        <p>music</p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img class="d-block slidSiz" src="../img/sport-nav.jpg" alt="forth slide">
                     <div class="carousel-caption d-none d-md-block">
                         <h1>SPORT</h1>
-                        <p>Donnez le maximum</p>
+                        <p>sport</p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img class="d-block slidSiz" src="../img/art-nav.jpg" alt="fifth slide">
                     <div class="carousel-caption d-none d-md-block">
                         <h1>ART</h1>
-                        <p>La vie en dessin</p>
+                        <p>art</p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img class="d-block slidSiz" src="../img/voyage-nav.jpg" alt="sixth slide">
                     <div class="carousel-caption d-none d-md-block">
                         <h1>VOYAGE</h1>
-                        <p>Allez encore plus loins</p>
+                        <p>voyage</p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img class="d-block slidSiz" src="../img/tech-nav.jpg" alt="seventh slide">
                     <div class="carousel-caption d-none d-md-block">
                         <h1>HIGH-TECH</h1>
-                        <p>Mais qu'est ce que c'est ?</p>
+                        <p>tech</p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img class="d-block slidSiz" src="../img/apprendre-nav.jpg" alt="eigth slide">
                     <div class="carousel-caption d-none d-md-block">
                         <h1>APPRENDRE</h1>
-                        <p>La connaissance c'est le pouvoir</p>
+                        <p>apprendre</p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img class="d-block slidSiz" src="../img/fete-nav.jpg" alt="ninth slide">
                     <div class="carousel-caption d-none d-md-block">
                         <h1>FETE</h1>
-                        <p>Alors tu viens?</p>
+                        <p>fete</p>
                     </div>
                 </div>
             </div>

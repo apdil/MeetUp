@@ -10,15 +10,6 @@ include_once '../Model/Personne.php';
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">CARTE</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">BUZZ</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Message</a>
-          </li>
       <?php if(isset($_SESSION['profil'])){ ?>
           <li class="nav-item"><a class='nav-link' href='profileConnected.php'>Profil</a></li>
           <li class='nav-item'><a class='nav-link' href='../Controller/deconectProcess.php'>Se Deconnecter</a></li>  
