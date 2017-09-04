@@ -1,0 +1,22 @@
+let intervalID = setInterval(function () {
+            doAjax({
+                method: 'GET',
+                url: 'Controller/yo.php',
+                callback: function (reponse) {
+                    if (reponse != '') { // if database is empty
+                        let object = JSON.parse(reponse);
+                        if (object !== oldMessag[oldMessag.length - 1]) {
+                            oldMessag.push(object);
+                            displayMessag.innerHTML = "";
+                            for (let commentObject of object) {
+                                displayTchat(commentObject); // inner displayMessage display message
+                            }
+                            displayMessag.scrollTop = displayMessag.scrollHeight;
+                        }
+                    }
+                    // document.querySelector('#displayMessag').addEventListener('scroll', function () {
+                    //     clearInterval(intervalID);
+                    // });
+                }
+            });
+        }, 500);
